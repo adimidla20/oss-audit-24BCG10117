@@ -1,51 +1,51 @@
+cat > README.md << 'EOF'
 # Open Source Audit: Git Version Control System
 
 **Course:** Open Source Software (NGMC)  
-**Student Name:** Adi Midla  
-**Registration Number:** 24BCG10117  
-**Chosen Software:** Git - Distributed Version Control System  
+**Student:** Adi Midla  
+**Roll Number:** 24BCG10117  
+**Subject of Study:** Git - Distributed Version Control System  
 **License:** GNU General Public License v2 (GPL v2)  
-**Date of Submission:** 31 March 2026
+**Submission Date:** 31 March 2026
 
 ---
 
-## Project Overview
+## What This Project Is About
 
-This project is a structured audit of **Git**, the world's most popular distributed version control system. The audit includes:
+Hi! This is my audit of **Git**, the version control system that basically every developer on Earth uses. But this isn't just a "what is Git" kind of project — it's a deep dive into *why* it exists, *who* built it, *what freedoms* its license gives you, and *how* it fits into the open-source ecosystem.
 
-1. **Project Report (12-16 pages)** — Analysis of Git's origin, philosophy, licensing, ecosystem, and comparison with proprietary alternatives
-2. **Five Shell Scripts** — Practical demonstrations of Linux command-line skills related to system auditing and open-source philosophy
+Along with a detailed written report, I've created five shell scripts that show I understand how open-source tools actually work on Linux and how to automate common system administration tasks.
 
-The project aims to develop critical thinking about open-source software, Linux systems administration, and the values that drive collaborative development.
+**Why does this matter?** Because every line of code you'll ever write will probably run on top of open-source foundations. Understanding the philosophy behind that isn't optional — it's essential.
 
 ---
 
-## Prerequisites
+## What You Need to Get Started
 
-### System Requirements
-- **Linux OS** (Ubuntu 20+, CentOS 7+, or any distribution)
-- **Bash shell** (version 4.0+)
-- **Standard Unix utilities:** grep, awk, cut, du, ls, wc, date, whoami, hostname, uname
+### Your System Should Have:
+- **Linux** (Ubuntu, CentOS, Fedora — any distribution works)
+- **Bash shell** (version 4.0 or newer)
+- **Standard Linux tools** (grep, awk, cut, du, ls — these are built-in)
 
-### Software Installation
+### Install Git (if you don't have it):
 
-#### Ubuntu/Debian
+**If you're on Ubuntu/Debian:**
 ```bash
 sudo apt-get update
-sudo apt-get install -y git curl wget
+sudo apt-get install -y git
 ```
 
-#### CentOS/RHEL
+**If you're on CentOS/RHEL:**
 ```bash
-sudo yum install -y git curl wget
+sudo yum install -y git
 ```
 
-#### macOS
+**On Mac:**
 ```bash
 brew install git
 ```
 
-### Verify Installation
+**Check it worked:**
 ```bash
 git --version
 bash --version
@@ -53,198 +53,142 @@ bash --version
 
 ---
 
-## Project Structure
+## How This Project is Organized
 ```
 oss-audit-24BCG10117/
 │
-├── README.md                          # This file
-├── project_report.pdf                 # Your 12-16 page report
+├── README.md                          # You're reading this now
+├── project_report.pdf                 # The full 12-16 page analysis
 │
-├── script1_system_identity.sh          # System info + philosophy
-├── script2_package_inspector.sh        # Git package details
-├── script3_disk_auditor.sh             # Directory permissions & size
-├── script4_log_analyzer.sh             # Log file keyword search
-└── script5_manifesto_generator.sh      # Interactive philosophy generator
+├── script1_system_identity.sh          # Shows your Linux system info
+├── script2_package_inspector.sh        # Checks if Git is installed
+├── script3_disk_auditor.sh             # Audits disk usage & permissions
+├── script4_log_analyzer.sh             # Searches logs for keywords
+└── script5_manifesto_generator.sh      # Interactive philosophy statement
 ```
 
 ---
 
-## Shell Scripts Overview
+## The Five Scripts (What They Do & How to Run Them)
 
 ### Script 1: System Identity Report
-**File:** `script1_system_identity.sh`
+**What it does:** Prints out your Linux system information and reminds you that Git is built on GPL v2.
 
-**Purpose:** Displays comprehensive Linux system information and introduces the open-source philosophy behind Git.
+**It shows:**
+- What Linux distribution you're using
+- Your kernel version
+- Who you're logged in as
+- How long your system has been running
+- The date and time
+- A message about open-source freedom
 
-**Output includes:**
-- Linux distribution name and kernel version
-- Current user and home directory
-- System uptime and current date/time
-- Git license information (GPL v2)
-
-**Shell Concepts Used:**
-- Variables (`$VAR`)
-- Command substitution (`$(command)`)
-- String formatting with `echo`
-
-**How to Run:**
+**Run it:**
 ```bash
 chmod +x script1_system_identity.sh
 ./script1_system_identity.sh
 ```
 
+**What you learn:** How to use variables, command substitution, and formatted output in Bash.
+
 ---
 
 ### Script 2: FOSS Package Inspector
-**File:** `script2_package_inspector.sh`
+**What it does:** Checks if Git is installed and tells you something interesting about it.
 
-**Purpose:** Checks if Git is installed on the system, retrieves version and license information, and displays philosophy notes about open-source tools.
+**It shows:**
+- Whether Git is installed on your system
+- What version you have
+- The license (GPL v2)
+- A quote from Linus Torvalds about why he built Git
+- Philosophy notes about other open-source tools
 
-**Output includes:**
-- Installation status (installed or not)
-- Package version and license
-- Philosophy notes specific to Git
-- Information about other FOSS tools (case statement)
-
-**Shell Concepts Used:**
-- `if-then-else` conditional logic
-- `case` statement for pattern matching
-- `dpkg -l` for package info
-- Pipe with `grep` for filtering
-
-**How to Run:**
+**Run it:**
 ```bash
 chmod +x script2_package_inspector.sh
 ./script2_package_inspector.sh
 ```
 
+**What you learn:** How to use `if-then-else` statements and `case` statements to make decisions based on what's installed.
+
 ---
 
 ### Script 3: Disk and Permission Auditor
-**File:** `script3_disk_auditor.sh`
+**What it does:** Walks through important system directories and tells you how much space they use and who owns them.
 
-**Purpose:** Audits important system directories to report disk usage, owner, group, and permission bits. Includes special section for Git configuration.
+**It shows:**
+- Directory sizes (human-readable, like 1.5G instead of bytes)
+- Permission bits (rwx format)
+- Owner and group
+- Special attention to Git configuration directories
 
-**Output includes:**
-- Directory permissions (rwx format)
-- Owner and group information
-- Disk usage (human-readable)
-- Security analysis of permissions
-- Git-specific config locations
-
-**Shell Concepts Used:**
-- Arrays (`DIRS[@]`)
-- `for` loops with array iteration
-- `ls -ld` for directory info
-- `awk` and `cut` for field extraction
-- `du -sh` for disk usage
-
-**How to Run:**
+**Run it:**
 ```bash
 chmod +x script3_disk_auditor.sh
 ./script3_disk_auditor.sh
 ```
 
+**What you learn:** How to loop through arrays, extract data using `awk` and `cut`, and understand Linux permissions.
+
 ---
 
 ### Script 4: Log File Analyzer
-**File:** `script4_log_analyzer.sh`
-
-**Purpose:** Analyzes log files by reading them line-by-line, counting occurrences of a keyword, and displaying matching entries.
+**What it does:** Reads a log file and counts how many times a specific word appears.
 
 **Usage:**
 ```bash
 ./script4_log_analyzer.sh [logfile] [keyword]
 ```
 
-**Examples:**
+**Try it:**
 ```bash
-# Analyze syslog for errors
 ./script4_log_analyzer.sh /var/log/syslog error
-
-# Analyze auth.log for failed logins
 ./script4_log_analyzer.sh /var/log/auth.log failed
-
-# Analyze kernel messages
 ./script4_log_analyzer.sh /var/log/kern.log warning
 ```
 
-**Shell Concepts Used:**
-- Command-line arguments (`$1`, `$2`)
-- Default values (`${VAR:-default}`)
-- `while IFS= read -r` loop (line-by-line processing)
-- `if-then` conditional inside loop
-- `grep -iq` for case-insensitive searching
-- Arrays for storing results
-- Arithmetic expansion (`$((...))`
+**What you learn:** How to read files line-by-line, count things, and give users helpful summaries.
 
 ---
 
 ### Script 5: Open Source Manifesto Generator
-**File:** `script5_manifesto_generator.sh`
+**What it does:** Asks you three questions and writes a personalized statement about your philosophy on open source.
 
-**Purpose:** Interactive script that asks three questions about your open-source philosophy and generates a personalized manifesto statement, saved to a file.
-
-**Process:**
-1. Prompts user for three inputs (using `read`)
-2. Generates timestamp and metadata
-3. Composes a multi-paragraph manifesto
-4. Saves to a timestamped file
-5. Displays the result
-
-**Shell Concepts Used:**
-- `read` command for user input
-- String concatenation with variables
-- Command substitution (`$(date)`, `$(whoami)`)
-- File creation with `>` (create) and `>>` (append)
-- Directory creation with `mkdir -p`
-- Conditional logic `[ ! -d DIR ]`
-
-**How to Run:**
+**Run it:**
 ```bash
 chmod +x script5_manifesto_generator.sh
 ./script5_manifesto_generator.sh
 ```
 
+**It will ask:**
+1. What open-source tool do you use every day?
+2. What does "freedom" mean to you?
+3. What would you build and share freely?
+
+Then it creates a text file with your personalized manifesto.
+
+**What you learn:** How to take user input, create files, work with timestamps, and build strings dynamically.
+
 ---
 
-## Quick Start Guide
+## Quick Start
 
-### Step 1: Clone Repository
+### Clone this repo:
 ```bash
 git clone https://github.com/adimidla20/oss-audit-24BCG10117.git
 cd oss-audit-24BCG10117
 ```
 
-### Step 2: Make Scripts Executable
+### Make all scripts executable:
 ```bash
 chmod +x script*.sh
 ```
 
-### Step 3: Run Each Script
-
-**Script 1 — System Identity**
+### Run all scripts at once:
 ```bash
 ./script1_system_identity.sh
-```
-
-**Script 2 — Package Inspector**
-```bash
 ./script2_package_inspector.sh
-```
-
-**Script 3 — Disk Auditor**
-```bash
 ./script3_disk_auditor.sh
-```
-
-**Script 4 — Log Analyzer**
-```bash
 ./script4_log_analyzer.sh /var/log/syslog error
-```
-
-**Script 5 — Manifesto Generator**
-```bash
 ./script5_manifesto_generator.sh
 ```
 
@@ -252,72 +196,110 @@ chmod +x script*.sh
 
 ## Troubleshooting
 
-### Scripts Won't Run
-**Problem:** `Permission denied`  
-**Solution:**
+**Scripts won't run?**
 ```bash
 chmod +x script*.sh
 ```
 
-### Script 4 (Log Analyzer) Fails
-**Problem:** `Log file not found`  
-**Solution:** Use a log file that exists on your system
+**"Permission denied" error?**
+Make sure the scripts are executable (see above).
+
+**Script 4 can't find a log file?**
+Check what log files exist:
 ```bash
 ls -la /var/log/
+```
+
+Then use one that exists:
+```bash
 ./script4_log_analyzer.sh /var/log/syslog error
 ```
 
-### Package Inspector Shows "Not Installed"
-**Problem:** Git not installed  
-**Solution:**
+**Git not installed?**
 ```bash
 sudo apt-get install git    # Ubuntu/Debian
-# or
 sudo yum install git        # CentOS/RHEL
+brew install git            # Mac
 ```
 
 ---
 
-## Project Report Structure
+## What the Report Covers
 
-The accompanying **project_report.pdf** includes:
+The **project_report.pdf** (12-16 pages) breaks down Git into four main sections:
 
-- **Part A (4 pages):** Origin story, license analysis, ethical reflection on open source
-- **Part B (2 pages):** Linux footprint — where Git installs, how it runs, user permissions
-- **Part C (2 pages):** FOSS ecosystem — dependencies, forks, community
-- **Part D (2-4 pages):** Git vs proprietary alternatives (SVN, Perforce, Mercurial) — comparison and verdict
+**Part A: Where Git Came From & Why (4 pages)**
+- The true story of why Linus Torvalds built Git
+- What problem it solved
+- How GPL v2 works and what it actually allows
+- Ethical questions about open source
 
----
+**Part B: Git on Linux (2 pages)**
+- Where Git lives on your computer (`/usr/bin/git`)
+- What configuration files it uses
+- Who can run it and what permissions matter
+- How you get security updates
 
-## Author & Submission
+**Part C: The Ecosystem Around Git (2 pages)**
+- What libraries Git depends on
+- What projects Git inspired (GitHub, GitLab, etc.)
+- Who maintains Git and how decisions get made
+- How Git fits into modern web development
 
-**Student Name:** Adi Midla  
-**Roll Number:** 24BCG10117  
-**Course:** Open Source Software (NGMC)  
-**Institution:** Vellore Institute of Technology (VIT), Bhopal  
-**Date of Submission:** 31 March 2026
-
----
-
-## License
-
-This project is licensed under the **GNU General Public License v2 (GPL v2)** — the same license as Git itself.
-
-You are free to:
-- Use, modify, and distribute this project
-- Study how the code works
-- Share improvements with others
+**Part D: Git vs The Alternatives (2-3 pages)**
+- How Git compares to Perforce, SVN, Mercurial
+- When you'd choose Git over something proprietary
+- Honest pros and cons
+- My verdict on whether I'd use it in production
 
 ---
 
-## References
+## About This Project
 
-- **GNU Project** — The Free Software Definition: https://gnu.org/philosophy/free-sw.html
-- **Open Source Initiative** — The Open Source Definition: https://opensource.org/osd
-- **Git Official Documentation** — https://git-scm.com/doc
-- **Linus Torvalds** — "Just for Fun" (autobiography)
+**Why I chose Git:**
+Git is everywhere. It's the foundation that modern software development is built on. But most people just use it without understanding *why* it's the way it is or *what values* it represents. This project forced me to actually research that.
+
+**What I learned:**
+- How one person's frustration (Linus couldn't use BitKeeper) led to a tool used by millions
+- That "free" doesn't mean "free of cost" — it means freedom to use, study, modify, and share
+- That open source isn't altruism — it's a practical way to build better software faster
+- That understanding the *philosophy* behind tools matters as much as knowing how to use them
+
+---
+
+## The License
+
+This project itself is licensed under **GPL v2** — the same license as Git. That means you can:
+- Use it however you want
+- Read and understand the code
+- Modify it for your needs
+- Share your improvements with others
+
+---
+
+## Resources I Used
+
+- **GNU Philosophy** — https://gnu.org/philosophy/free-sw.html
+- **Open Source Definition** — https://opensource.org/osd
+- **Git Documentation** — https://git-scm.com/doc
+- **Linus Torvalds** — "Just for Fun" (his autobiography)
 - **Eric S. Raymond** — "The Cathedral and the Bazaar"
 
 ---
 
-Happy learning! Remember: always keep your source open! 🚀
+## Questions?
+
+If any of these scripts don't work on your system, check the Troubleshooting section above.
+
+If you want to understand Git better, read the project report.
+
+If you want to contribute improvements, this repo is open for that too.
+
+**Remember: Keep your source open.** 🚀
+
+---
+
+**Adi Midla**  
+24BCG10117  
+VIT Bhopal
+EOF
