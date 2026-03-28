@@ -1,0 +1,601 @@
+================================================================================
+                    OPEN SOURCE AUDIT: GIT VERSION CONTROL
+                           Project Report
+================================================================================
+
+Student Name: Adi Midla
+Registration Number: 24BCG10117
+Course: Open Source Software (NGMC)
+Chosen Software: Git - Distributed Version Control System
+License: GNU General Public License v2 (GPL v2)
+Institution: Vellore Institute of Technology (VIT), Bhopal
+Date of Submission: 31 March 2026
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+Part A: Origin and Philosophy (4 pages)
+  A1. The Problem Git Was Created to Solve
+  A2. The License — What It Actually Says
+  A3. The Ethics of Open Source
+
+Part B: Linux Footprint (2 pages)
+  Installation and System Integration
+
+Part C: The FOSS Ecosystem (2 pages)
+  Dependencies, Community, and Impact
+
+Part D: Open Source vs Proprietary (2-3 pages)
+  Comparison and Real-World Assessment
+
+================================================================================
+PART A: ORIGIN AND PHILOSOPHY
+================================================================================
+
+A1. THE PROBLEM GIT WAS CREATED TO SOLVE
+(Pages 1-2)
+
+In 2005, the Linux kernel development faced a critical crisis that would 
+fundamentally change how software is version controlled globally. To understand 
+why Git exists, we need to understand what was broken before it.
+
+Before Git, the Linux kernel team used BitKeeper, a sophisticated version 
+control system created by Larry McVoy. BitKeeper was not open source, but McVoy 
+had granted the Linux community free licenses to use it. This arrangement worked 
+reasonably well until 2005, when a conflict emerged.
+
+Andrew Tridgell, a kernel developer, attempted to reverse-engineer the 
+BitKeeper protocol to understand how it worked. McVoy saw this as a violation 
+of trust and revoked the free licenses. Suddenly, the Linux kernel project — 
+which had grown to involve thousands of developers worldwide — found itself 
+without the tool it depended on. More importantly, they realized they had been 
+building on a foundation that could be taken away at any moment.
+
+This wasn't just a technical problem. It was a philosophical crisis. How could 
+an open-source project like Linux, built on the principle of freedom, depend on 
+proprietary software that could be controlled by a single company? What if that 
+company changed its mind? What if they went out of business?
+
+Linus Torvalds, the creator of Linux, decided the solution was not to find 
+another proprietary tool, but to build their own. In April 2005, he began 
+writing Git in about two weeks. What started as a practical necessity became 
+one of the most important tools in software development.
+
+Git solved three critical problems that proprietary systems like BitKeeper and 
+SVN (Subversion) could not adequately address:
+
+First, Git is distributed. Unlike centralized systems where one server holds 
+all the code and history, Git gives every developer a complete copy of the 
+entire project history. This means no single point of failure. If a server goes 
+down, any developer's computer has a backup. This distribution also enables 
+developers to work offline, commit changes, and synchronize later when they 
+reconnect.
+
+Second, Git is fast. Because it works locally on each developer's machine, 
+operations that would require server communication in centralized systems 
+(checking history, creating branches, switching between versions) are 
+instantaneous. A developer can branch and merge code in seconds, enabling 
+working styles that were impractical before.
+
+Third, Git uses cryptographic hashing (SHA-1) to ensure integrity. Every commit 
+is identified by a hash of its contents. If even one byte of code changes, the 
+hash changes. This makes it impossible to secretly modify history or corrupt 
+code without detection. Each developer can verify that the code they receive 
+has not been tampered with.
+
+The Linux kernel team adopted Git immediately. Within months, the entire kernel 
+community migrated to it. Today, Git powers not just Linux, but GitHub (founded 
+2008), GitLab, and essentially every software project of consequence. What began 
+as a solution to one team's crisis became the foundation of modern software 
+development.
+
+Why did Linus choose to build Git rather than use an existing tool? Because he 
+believed that fundamental tools should be controlled by the community that uses 
+them, not by a company. He believed that the source code of version control 
+itself should be open for inspection and improvement. And he believed that 
+developer freedom — the ability to work offline, to branch freely, to not be 
+dependent on a server — was worth the effort of building something new.
+
+This is the origin story of Git: one person's refusal to accept a world where 
+open-source software depends on proprietary tools.
+
+---
+
+A2. THE LICENSE — WHAT IT ACTUALLY SAYS
+(Pages 2-3)
+
+To understand what Git actually gives you the freedom to do, we must understand 
+its license: the GNU General Public License version 2 (GPL v2).
+
+The GPL v2 is one of the most important licenses in software history. Created 
+by Richard Stallman and the Free Software Foundation, it's based on four 
+fundamental freedoms:
+
+Freedom 0: The freedom to run the program for any purpose, commercial or 
+otherwise. No one can tell you what you can use Git for.
+
+Freedom 1: The freedom to study how the program works and adapt it to your 
+needs. This requires access to the source code. Git's source code is available 
+on GitHub for anyone to read.
+
+Freedom 2: The freedom to redistribute copies so you can help your neighbor. 
+You can download Git and share it with others.
+
+Freedom 3: The freedom to distribute modified versions of the software, so that 
+the whole community benefits from your improvements. If you improve Git, you can 
+share those improvements.
+
+Git's GPL v2 license grants all four freedoms completely.
+
+But GPL v2 has a unique characteristic that makes it different from other open-
+source licenses like MIT or Apache 2.0. It's called "copyleft," and it's 
+important to understand what this means.
+
+Copyleft means that if you take GPL-licensed code and modify it, then 
+redistribute it, you must release your modifications under the same GPL license. 
+You cannot take Git, modify it for your company's needs, and then sell it 
+without sharing your changes. This is the "viral" aspect of GPL — the freedom 
+propagates forward.
+
+To illustrate this with a concrete example: Suppose a company wanted to use Git 
+as the foundation for their proprietary version control system. Under GPL v2, 
+they cannot do this secretly. If they distribute their modified version to 
+customers, they must provide those customers with the source code and the right 
+to modify it further. The freedom doesn't stop with the company — it extends to 
+everyone who uses their product.
+
+This is fundamentally different from MIT-licensed software. MIT says: "Here's 
+the code, use it however you want, including in proprietary products, just 
+include a notice that says where it came from." MIT trusts the community to do 
+the right thing, but it doesn't legally require it.
+
+GPL v2 says: "Here's the code. You must maintain these freedoms for everyone 
+downstream. You cannot lock it up."
+
+Which is better? That depends on your philosophy. Some argue GPL v2 is more 
+protective of freedom because it prevents companies from building proprietary 
+walls on top of free software. Others argue MIT is more free because it trusts 
+individuals to make their own choices, even if some choose to create proprietary 
+systems.
+
+The phrase "free as in free speech, not free beer" is often used to clarify this 
+distinction. With Git, you get both: the source code is free to download 
+(free beer), and you have the freedom to study, modify, and share it 
+(free speech). But the GPL v2 ensures that downstream users also get free speech, 
+not just the current user.
+
+In practice, Git being GPL v2 has shaped its ecosystem. Red Hat, Canonical, and 
+other companies can charge money for Git support and hosting services (GitHub, 
+GitLab), and this is perfectly legal under GPL v2. But they cannot charge for 
+the code itself and restrict its distribution. The software remains free while 
+the support and convenience can be monetized.
+
+---
+
+A3. THE ETHICS OF OPEN SOURCE
+(Pages 3-4)
+
+Understanding Git's license leads to deeper ethical questions about open source 
+itself. Is it ethical for all software to be open source? Is it fair that 
+companies build profitable products on free community labor?
+
+The question "Should all software be open source?" reveals a genuine tension.
+
+The argument for open source is compelling: knowledge should be free. Science 
+progresses because researchers build on each other's work, reading papers, 
+reproducing experiments, and extending ideas. Software should work the same way. 
+When code is open, developers can learn from it, find bugs faster, and improve 
+the ecosystem as a whole. Security vulnerabilities are discovered and fixed more 
+quickly when many eyes can examine the code. Innovation accelerates when 
+developers don't have to reinvent the wheel — they can build on existing open 
+projects.
+
+The argument against is also reasonable: creating software requires time, 
+expertise, and resources. Developers have families to feed and need to be paid. 
+If all software is free, how do software creators sustain themselves? Some argue 
+that proprietary software allows creators to recoup their investment and 
+continue building. Without the possibility of commercial software, some projects 
+might never exist because they're not commercially viable but require significant 
+resources.
+
+The reality is nuanced. Open source has not eliminated proprietary software — 
+they coexist. Companies like Microsoft, Apple, and Google release some projects 
+as open source while keeping others proprietary. This hybrid approach allows 
+companies to benefit from community contributions while maintaining control of 
+strategically important code.
+
+A second ethical question is more directly about fairness: Is it ethical for 
+companies like Google, Meta, and Microsoft to build massive profits on top of 
+free software like Linux?
+
+Google's Android runs on the Linux kernel. Meta's infrastructure runs on Linux. 
+Microsoft (ironically) now ships Linux with Windows. These companies have 
+benefited tremendously from code that was written for free by Linus Torvalds 
+and thousands of volunteer developers.
+
+From one perspective, this is exploitation. Volunteers wrote code for idealistic 
+reasons, expecting it to benefit everyone. Instead, it primarily benefited giant 
+corporations worth billions of dollars.
+
+From another perspective, this is exactly what open source intends to enable. 
+The Linux developers released their work under GPL v2, which explicitly allows 
+commercial use. They were not naive about this possibility. They chose GPL 
+precisely because they wanted to ensure that anyone — including companies — 
+could benefit from their work, as long as they contributed improvements back.
+
+In practice, many large companies do contribute to the projects they depend on. 
+Google employees maintain critical parts of Linux. Microsoft contributes to the 
+Linux kernel and supports open-source projects. Red Hat's entire business model 
+is built on supporting and improving open-source software.
+
+But there's a legitimate criticism: not all companies contribute back 
+proportionally to what they extract. Some use free software extensively but 
+contribute minimally to it. This creates a dynamic where society's most 
+powerful companies benefit from free labor without fully reciprocating.
+
+The third ethical question is about innovation: Does open source enable or 
+undermine innovation?
+
+Some argue that open source enables innovation because it allows developers to 
+build on each other's work. You don't have to solve already-solved problems — 
+you can use someone else's solution and focus on novel challenges. This 
+accelerates progress across the field.
+
+Others argue that proprietary incentives drive innovation because companies 
+invest heavily in solving problems that will differentiate their products. 
+Without the possibility of competitive advantage through proprietary features, 
+some argue, companies wouldn't invest in expensive research and development.
+
+The evidence suggests both can drive innovation. Some of the fastest-moving, 
+most innovative areas of technology (like machine learning and web development) 
+are powered by open source. But pharmaceutical companies, which operate under 
+different incentive structures, have also driven significant innovation.
+
+My view on these ethical questions is this: Open source represents a genuine 
+alternative model for creating and sharing knowledge. It's not universally 
+better than proprietary software — the optimal approach depends on context. For 
+foundational tools like version control, operating systems, and programming 
+languages, open source has proven superior because it enables the entire 
+community to benefit and contribute. For specialized applications where 
+significant investment is required, proprietary models have merit.
+
+What matters most is transparency about trade-offs and honesty about who 
+benefits from what. Git's success comes not just from good engineering, but from 
+aligning its licensing with its values: community ownership of critical tools.
+
+================================================================================
+PART B: LINUX FOOTPRINT
+================================================================================
+
+(Pages 4-5)
+
+Installing and understanding where Git lives on a Linux system reveals how 
+practical the open-source philosophy is in daily use.
+
+INSTALLATION METHOD
+
+On Ubuntu/Debian systems (the most common in development environments):
+  $ sudo apt-get install git
+
+This single command downloads Git from Debian's package repositories, installs 
+it, and makes it immediately available. The package manager handles dependencies 
+automatically.
+
+On my system (Ubuntu 22.04 running in WSL):
+  $ git --version
+  git version 2.43.0
+
+The installation was straightforward because Debian maintainers have already 
+packaged Git and all its dependencies for easy installation.
+
+KEY DIRECTORIES
+
+After installation, Git is distributed across several standard Linux locations:
+
+Main binary: /usr/bin/git
+  This is the primary executable. When you type "git" in your terminal, the 
+  system finds this binary.
+
+Documentation: /usr/share/man/man1/git.1.gz
+  Unix man pages (manual pages) for Git are stored here. You can read them with
+  "man git" to understand any Git command.
+
+System configuration: /etc/gitconfig
+  This file contains Git settings that apply to all users on the system. Most 
+  systems don't have this file by default.
+
+User configuration: ~/.gitconfig
+  Each user's personal Git configuration file. When I run "git config --global 
+  user.name", it writes to this file.
+
+Repository data: .git/ (in any directory)
+  When you initialize a Git repository, Git creates a .git folder containing 
+  all version history, branches, and configuration for that specific project.
+
+USER AND GROUP
+
+Unlike server software like Apache or MySQL, Git doesn't run as a special user. 
+It runs as whoever invokes it.
+
+When I type "git commit", Git runs with my permissions (user: lenovo). There is 
+no dedicated "git" user on my system. This makes sense because Git is a tool 
+developers use directly, not a background service.
+
+Permissions on the git binary:
+  -rwxr-xr-x 1 root root /usr/bin/git
+
+This means:
+  - Owner (root): read, write, execute
+  - Group (root): read, execute
+  - Others: read, execute
+
+Everyone can run Git, which is correct — it's a developer tool meant to be 
+universally accessible.
+
+SERVICE MANAGEMENT
+
+Git is not a service. It doesn't run in the background like Apache or MySQL. 
+When you run "git push", Git starts, uploads your changes, and exits.
+
+However, Git can be served over SSH using the SSH service:
+  $ sudo systemctl status ssh
+
+If you want to run a Git server that people can connect to, you'd use:
+  $ git daemon
+
+But this isn't required for Git to work. Individual developers use Git locally 
+on their machines. Collaboration happens through centralized services like 
+GitHub, which handles the server aspects.
+
+UPDATE MODEL
+
+Security updates and new versions reach users through the package manager:
+
+  $ sudo apt update        # Refresh available packages
+  $ sudo apt upgrade       # Install updates (including Git if available)
+
+When Ubuntu releases a security patch for Git, it appears in the package 
+manager, and users can update with one command. This is one of the great 
+advantages of open-source software managed by distributions — security updates 
+are coordinated and delivered systematically.
+
+The Git project itself releases new versions frequently. You can see the full 
+release history on GitHub at github.com/git/git. Each release is tagged, 
+version-numbered, and maintained. Users can choose when to upgrade — there's no 
+forced update cycle like with proprietary software.
+
+================================================================================
+PART C: THE FOSS ECOSYSTEM
+================================================================================
+
+(Pages 5-6)
+
+Git doesn't exist in isolation. It depends on other open-source tools and has 
+inspired an entire ecosystem of software.
+
+DEPENDENCIES
+
+When you install Git, the package manager also installs several libraries that 
+Git depends on:
+
+libcurl: Handles HTTP and HTTPS operations. When you do "git clone 
+https://github.com/...", libcurl manages the network communication. Like Git 
+itself, libcurl is open source (MIT license).
+
+OpenSSL: Provides encryption for secure connections. When Git connects to a 
+server over SSH, OpenSSL handles the cryptographic handshake. Also open source 
+(Apache 2.0 license).
+
+zlib: Compresses Git repository data. Every Git commit is compressed using zlib 
+before storage. This reduces repository size significantly. Also open source 
+(zlib license).
+
+libc: The C standard library, which provides fundamental functions that Git's 
+C code uses. Part of GNU, open source (LGPL).
+
+These are not Git's unique creations — they're existing open-source libraries 
+that Git uses. This illustrates an important principle of open source: you build 
+on existing work rather than reinventing everything.
+
+PROJECTS INSPIRED BY GIT
+
+Git's success inspired numerous derivative and alternative projects:
+
+GitHub (2008): Not just a hosting service, but a platform that made Git 
+accessible to non-technical users. Founded by Tom Preston-Werner, Chris Wanstrath, 
+and Scott Chacon, GitHub added a web interface, issue tracking, and collaboration 
+features on top of Git. GitHub became so successful that Microsoft acquired it 
+for $7.5 billion in 2018.
+
+GitLab (2013): An open-source alternative to GitHub, allowing organizations to 
+run their own Git server with GitLab's interface and tools. Unlike GitHub, GitLab 
+itself is open source, following the Git philosophy.
+
+Gitea (2016): A lightweight, self-hosted Git service. For organizations that want 
+Git hosting but don't want the overhead of full GitLab, Gitea provides a 
+minimal, efficient alternative.
+
+Mercurial (Hg): An alternative distributed version control system created around 
+the same time as Git. Mercurial was used by Facebook and Mozilla but never 
+achieved Git's market dominance.
+
+Pijul: A modern distributed version control system designed with category theory 
+and patch algebra. It's a research-oriented project exploring fundamental 
+questions about how version control should work.
+
+THE COMMUNITY
+
+Git is maintained by hundreds of contributors worldwide. The primary maintainer 
+is Junio C. Hamano, who has led the project since 2005. The development happens 
+on GitHub itself (ironically, Git is developed using Git on GitHub), and the 
+community uses:
+
+Mailing list: git@vger.kernel.org for technical discussions and patch reviews.
+
+Issues and pull requests on GitHub for bug reports and feature proposals.
+
+Regular releases: New versions every 8-12 weeks with stable versions maintained 
+longer-term.
+
+Conferences: The Linux Kernel Summit and GitMerge conference include discussions 
+about Git development.
+
+Governance is informal but transparent. There's no formal voting process, but 
+decisions are made through discussion and consensus among core developers. This 
+model has worked remarkably well for a project so critical to software 
+development.
+
+GIT IN MODERN WEB DEVELOPMENT
+
+In a typical LAMP (Linux, Apache, MySQL, PHP) stack development workflow:
+
+1. A developer uses Git to version control their PHP code locally.
+2. When code is ready, they push to GitHub or GitLab.
+3. CI/CD pipelines (GitHub Actions, GitLab CI) automatically run tests.
+4. If tests pass, the code is deployed to a Linux server with Apache, MySQL, 
+   and the application code.
+5. Git remains the source of truth — every version of the code that's ever been 
+   deployed is retrievable from Git history.
+
+Without Git, coordinating multiple developers on the same codebase would be 
+nearly impossible. Git enables teams of hundreds to collaborate on millions of 
+lines of code.
+
+================================================================================
+PART D: GIT VS PROPRIETARY ALTERNATIVES
+================================================================================
+
+(Pages 6-8)
+
+To properly evaluate Git, we should compare it against its closest competitors.
+
+COMPARISON TABLE
+
+                     | Git (OSS)    | Perforce         | Subversion (SVN)
+─────────────────────┼──────────────┼──────────────────┼────────────────────
+Cost                 | Free         | $$$ ($$$)        | Free (Open Source)
+Distribution Model   | Distributed  | Centralized      | Centralized
+Speed                | Very Fast    | Slow (large)     | Medium
+Scalability          | Excellent    | Good for binary  | Limited
+Branching            | Instant      | Expensive        | Slow
+Learning Curve       | Steep        | Very Steep       | Easy
+Industry Adoption    | ~95% of devs | Games/Studios    | Legacy projects
+Community            | Massive      | Corporate        | Declining
+Source Available     | Yes          | Proprietary      | Yes
+─────────────────────┴──────────────┴──────────────────┴────────────────────
+
+GIT VS PERFORCE
+
+Perforce is a proprietary version control system used primarily in game 
+development and large enterprises. It costs thousands of dollars per user and is 
+optimized for large binary files (game assets).
+
+Git's advantages: Free, distributed, faster for most use cases, community support.
+
+Perforce's advantages: Better optimized for massive binary files, centralized 
+control (sometimes a feature, not a bug), used for 20 years in demanding 
+environments.
+
+For a game studio like Unreal Engine's company, Perforce might be worth the cost 
+because the binary assets are truly massive. For a web startup with 20 
+developers, Git is clearly the better choice.
+
+GIT VS SUBVERSION (SVN)
+
+SVN is an open-source version control system that preceded Git. It's centralized, 
+meaning there's one main server that holds all history. Developers check out 
+files, make changes, and check them back in.
+
+Git's advantages: Distributed (developers have full history locally), much faster 
+operations, better branching, modern workflow.
+
+SVN's advantages: Simpler mental model (centralized is easier to understand), 
+more granular permission control, mature and stable.
+
+Most teams that used SVN have migrated to Git. SVN still exists primarily in 
+legacy projects and some enterprises where organizational inertia is strong.
+
+GIT VS MERCURIAL (HG)
+
+Mercurial is another distributed version control system created around the same 
+time as Git. It has similar capabilities but a different philosophy — some argue 
+it's simpler to learn.
+
+Git's advantages: Won the market (so much more available hosting, integration, 
+and tooling), larger community, adopted by Linux and most major projects.
+
+Mercurial's advantages: Some argue the interface is more intuitive, slightly 
+simpler for basic operations.
+
+This was essentially a war of better engineering plus network effects. Both are 
+good tools. Git won because GitHub was launched early and became essential. Once 
+everyone used GitHub, using Git made sense, even if Mercurial was slightly 
+better for some use cases.
+
+MY VERDICT
+
+For almost all modern software development, Git is the correct choice. The 
+combination of:
+
+1. Zero cost
+2. Distributed architecture  
+3. Excellent speed and performance
+4. Massive ecosystem (GitHub, GitLab, infinite tooling)
+5. Universal adoption (everyone learns Git)
+6. Active community and security updates
+
+makes Git effectively the only practical choice for most teams.
+
+The only exceptions are:
+
+- Large studios with massive binary assets might legitimately prefer Perforce
+- Legacy systems that have invested heavily in SVN might not justify migration
+- Niche use cases might have specialized tools
+
+If I were starting a software company today, would I use Git? Absolutely yes, 
+without hesitation. The alternatives are either more expensive, less capable, or 
+both.
+
+Would I contribute to Git's development? Yes. Git is so foundational that 
+improving it benefits everyone. Even small bug fixes or documentation improvements 
+would be worthwhile contributions. The project has good processes for accepting 
+contributions via email patches and pull requests on GitHub.
+
+CONCLUSION
+
+Git succeeded because it solved a real problem (BitKeaker's proprietary lock-in) 
+with a solution that embodied its values (distributed, open-source version 
+control). It didn't just work better technically — it represented a philosophical 
+stance that tools which enable human collaboration should be owned by the 
+community, not by companies.
+
+The fact that proprietary companies now depend on it and contribute back to it 
+validates the GPL v2 philosophy: you can build commercial value on open-source 
+foundations as long as you respect the freedoms that make those foundations 
+strong.
+
+Git's dominance in the industry is not inevitable. It resulted from good 
+engineering, good timing, the emergence of GitHub, and the alignment of its 
+values with the values of the developer community. Those same factors could 
+change, and a better tool could hypothetically replace Git.
+
+But for the foreseeable future, Git is not just the best choice — it's the only 
+practical choice for version control. And that's exactly as it should be for 
+software that's this critical: it should be open, free, and owned by everyone 
+who depends on it.
+
+================================================================================
+END OF REPORT
+================================================================================
+
+Report compiled by: Adi Midla (24BCG10117)
+Date: 31 March 2026
+Institution: Vellore Institute of Technology, Bhopal
+Course: Open Source Software (NGMC)
+Software Audited: Git (GNU General Public License v2)
+
+Word count: Approximately 4,500 words
+Estimated pages: 12-14 pages (depending on formatting)
+
+================================================================================
