@@ -3,7 +3,7 @@
 # ============================================================================
 # Script 2: FOSS Package Inspector
 # Purpose: Check if Git is installed, retrieve version/license info
-# Author: [Your Name] | Course: Open Source Software | Software: Git
+# Author: Adi Midla | Roll: 24BCG10117 | Course: Open Source Software | Software: Git
 # ============================================================================
 
 PACKAGE="git"
@@ -11,13 +11,13 @@ PACKAGE="git"
 echo ""
 echo "╔════════════════════════════════════════════════════════════════╗"
 echo "║           FOSS PACKAGE INSPECTOR — Git Audit                   ║"
+echo "║          Student: Adi Midla (24BCG10117)                       ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 
 echo "Checking if '$PACKAGE' is installed..."
 echo ""
 
-# Try dpkg first (for Ubuntu/Debian)
 if command -v dpkg &>/dev/null && dpkg -l | grep "^ii.*$PACKAGE" &>/dev/null; then
     echo "✓ Package '$PACKAGE' is INSTALLED on this system."
     echo ""
@@ -29,7 +29,6 @@ if command -v dpkg &>/dev/null && dpkg -l | grep "^ii.*$PACKAGE" &>/dev/null; th
     dpkg -s $PACKAGE | grep -E 'Version|Description'
     echo ""
 
-# If dpkg doesn't find it, check if git command exists
 elif command -v git &>/dev/null; then
     echo "✓ Git command found in system PATH"
     echo ""

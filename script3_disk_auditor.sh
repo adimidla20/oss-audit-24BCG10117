@@ -3,12 +3,13 @@
 # ============================================================================
 # Script 3: Disk and Permission Auditor
 # Purpose: Loop through system directories and report space + permissions
-# Author: [Your Name] | Course: Open Source Software | Software: Git
+# Author: Adi Midla | Roll: 24BCG10117 | Course: Open Source Software | Software: Git
 # ============================================================================
 
 echo ""
 echo "╔════════════════════════════════════════════════════════════════╗"
 echo "║         DISK AND PERMISSION AUDITOR — System Audit             ║"
+echo "║          Student: Adi Midla (24BCG10117)                       ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 

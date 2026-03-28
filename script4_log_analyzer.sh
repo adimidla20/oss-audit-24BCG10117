@@ -3,9 +3,8 @@
 # ============================================================================
 # Script 4: Log File Analyzer
 # Purpose: Read log file line by line, count keyword occurrences
+# Author: Adi Midla | Roll: 24BCG10117 | Course: Open Source Software | Software: Git
 # Usage: ./script4_log_analyzer.sh [logfile] [keyword]
-# Example: ./script4_log_analyzer.sh /var/log/syslog error
-# Author: [Your Name] | Course: Open Source Software | Software: Git
 # ============================================================================
 
 LOGFILE="${1:-/var/log/syslog}"
@@ -16,6 +15,7 @@ MATCHING_LINES=()
 echo ""
 echo "╔════════════════════════════════════════════════════════════════╗"
 echo "║              LOG FILE ANALYZER — Keyword Counter               ║"
+echo "║          Student: Adi Midla (24BCG10117)                       ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Log file: $LOGFILE"
